@@ -1,0 +1,87 @@
+
+.fedex-purple {
+  color: #660099;
+}
+
+.fedex-orange {
+  color: #ff6600;
+}
+
+ .bar.bar-positive {
+    border-color: #0c60ee;
+    background-color: #660099;
+    background-image: linear-gradient(0deg, #0c60ee, #0c60ee 50%, transparent 50%);
+    color: #fff; 
+    }
+
+.button.button-positive {
+    border-color: transparent;
+    background-color: #ff6600;
+    color: #fff;
+}
+
+.button.button-positive.button-outline {
+    border-color: transparent;
+    background-color: transparent;
+    /* color: #ff6600; */
+    color: black;
+    font-size: x-large;
+}
+
+
+.button.button-positive.activated {
+    background-color: #660099;
+}
+
+/* Button Float Starts */
+.button-float{
+  background: $assertive !important;
+  color:white !important;
+  background-color: #ff6600;
+  z-index: 12 !important;
+  position: absolute !important; 
+  bottom: 10px !important;
+  /*right: 10px !important;*/
+  border-radius: 50% !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transition: 0.2s linear !important;
+  transition: 0.2s linear !important;
+  -webkit-transition-property: -webkit-transform, all !important;
+  transition-property: transform, all !important;
+
+}
+
+.button-float:hover{
+  -webkit-transform: translate3d(0, -1px, 0)  !important;
+  transform: translate3d(0, -1px, 0) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
+    background: darken($assertive, 10%) !important;
+}
+
+/* Button Float Ends */
+
+ /* Custom color for Toggle */
+.toggle input:checked + .track {
+    background-color: #ff6600;;
+    border-color: #ff6600;;
+}
+
+/* Custom color for Toggle */
+
+
+.bar-positive .button {
+    border-color: #ff6600;;;
+    background-color: #ff6600;;;
+    /*color: #fff;*/
+}
+
+
+.toast-success {
+  background-color:black;
+}
+
+.larger {
+    font-size: larger;
+}

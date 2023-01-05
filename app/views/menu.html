@@ -1,0 +1,54 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+              </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+
+
+     <div class="spacer calm" data-componentid="spacer1" style="width: 100%; height: 35px;background:#660099;"></div>
+                <div class="profile-image" data-componentid="image1" style="background:#660099;">
+                    <img src="https://avatars2.githubusercontent.com/u/3466845?v=3&s=460" width="120" height="auto" style="border-radius:50%;border:2px solid;border-color:white;display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <div class="spacer" data-componentid="spacer2" style="width: 100%; height: 15px;background:#660099;"></div>
+
+                <h3 id="menu-heading1" style="color:white;background:#660099;font-weight:300;text-align:center;margin-top:0px;margin-bottom:0px;" data-componentid="heading1">Faeez Shaikh</h3>
+                <p  style="color:white;background:#660099;font-weight:300;text-align:center;margin-top:0px;margin-bottom:0px;font-size:10px;">{{person1Addr}}</p>
+      <div class="spacer" data-componentid="spacer2" style="width: 100%; height: 35px;background:#660099;"></div>
+    
+
+
+
+      <ion-list>
+      
+     
+         <ion-item menu-close class="item item-icon-left" href="#/app/contract">
+          <i class="icon ion-document-text ameren"></i>&nbsp;Smart Contract
+           <span class="badge badge-assertive">{{contractBalanace}}</span>
+        </ion-item>
+            <ion-item menu-close class="item item-icon-left" href="#/app/packages">
+          <i class="icon ion-briefcase ameren"></i>&nbsp;Packages
+           <span class="badge badge-assertive">2</span>
+        </ion-item>
+      
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

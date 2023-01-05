@@ -1,0 +1,182 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">Add New Package</h1>
+      
+      <button class="button pull-right" ng-click="balanceClicked()">
+         My Balance <strong><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp {{getBalance() | number:2}} </strong>
+      </button>
+  </ion-header-bar>
+
+
+  <ion-content class="padding" delegate-handle="show-page">
+    <div class="list">
+      <!--Image Starts -->
+      <div class="text-center" ng-hide="imageData" ng-click="autoFill()">
+        <img  class="full-image" ng-src="{{imgUrl}}" style="width:50%;height:50%">
+        <!--<ion-spinner ng-show="showSpinner" icon="ripple" class="spinner-assertive"></ion-spinner>-->
+      </div>
+
+      <div class="text-center" ng-show="imageData" ng-click="autoFill()">
+        <div class="picture">
+          <!--<img ng-src="data:image/jpeg;base64,{{imageData}}" alt="">-->
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="button button-positive" ng-click="addPicture(true)"><i class="icon ion-ios-cloud-upload">&nbsp;</i>Upload</button>
+        <button class="button button-positive" ng-click="addPicture(false)"><i class="icon ion-camera">&nbsp;</i>Take Picture</button>
+        <button class="button button-assertive" ng-click="removePicture()" ng-show="imageData"><i class="icon ion-trash-a">&nbsp;</i>Remove Picture</button>
+      </div>
+      <!--Image Ends-->
+
+      <p></p>
+
+
+      <!-- <div class="item item-divider">
+        Sender Info
+      </div>
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <input ng-model="form.senderAddr" type="text" placeholder="Full Address">
+            </label>
+
+
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Phone&nbsp;<small  style="font-size:50%">Min 10 chars</small></span>
+              <input ng-model="form.senderPhone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
+            </label>
+
+
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Email&nbsp;</span>
+              <input ng-model="form.senderEmail" type="email" placeholder="someone@gmail.com"></textarea>
+            </label> -->
+
+
+
+
+      <div class="item item-divider">
+        Receiver Info
+      </div>
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <input ng-model="form.receiverAddr" type="text" placeholder="Full Name">
+            </label>
+
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Phone&nbsp;<small  style="font-size:50%">Min 10 chars</small></span>
+              <input ng-model="form.recieverPhone" type="text" placeholder="(314)-234-9876" maxlength="12"></textarea>
+            </label>
+
+
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Email&nbsp;</span>
+              <input ng-model="form.recieverEmail" type="email" placeholder="someone@gmail.com"></textarea>
+            </label>
+
+
+
+
+
+      <div class="item item-divider">
+        Instructions
+      </div>
+      <label class="item item-input item-stacked-label">
+                  <div class="row">
+                      <div class="col col-50">
+                        <span class="input-label">Signed Delivery Required?</span>
+                        <p></p>
+                        <small  style="font-size:50%">Turn off to enter Address</small>
+                      </div>
+                      <div class="col col-50">
+                        <label class="toggle pull-right">
+                          <input type="checkbox" ng-model="form.confirm">
+                          <div class="track">
+                            <div class="handle"></div>
+                          </div>
+                        </label>
+    </div>
+    </div>
+    </label>
+
+
+
+
+    <ion-checkbox class="checkbox-royal" ng-model="form.fragile">Fragile?</ion-checkbox>
+
+
+
+    <label class="item item-input item-stacked-label">
+              <span class="input-label">Instructions*&nbsp;<small ng-show="!isDescValid(form.story)" style="font-size:50%">Min 100 chars</small></span>
+              <textarea ng-model="form.instructions" type="text" placeholder="Detailed Story" rows="5" cols="50"></textarea>
+            </label>
+
+    <div class="item item-divider">
+      Speed & Cost: 
+    </div>
+    <!--<div>
+        <div class="item range range-balanced range-background-dark">
+          <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;Slow
+          <input type="range" name="volume" min="0" max="100" ng-model="form.cost" ng-change="onRangeChange()">
+          <i class="fa fa-diamond fa-2x" aria-hidden="true"></i>&nbsp;Fast
+        </div>
+    </div>-->
+
+
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <label class="item item-input">
+                  <span class="input-label">Days:</span>
+                  <span>{{form.days}} days</span>
+                </label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <label class="item item-input">
+                  <span class="input-label">Cost&nbsp;(<i class="fa fa-diamond" aria-hidden="true"></i>):</span>
+                  <span class="pull-right">{{form.gems | number:2}}</span>
+                </label>
+              </div>
+            </div>
+            <!--<div class="col">
+              <div class="card">
+                <label class="item item-input">
+                  <span class="input-label">Premium Received (<i class="ion ion-social-bitcoin"></i>) :</span>
+                  <span>{{premiumRecvd | number:2}}</span>
+                </label>
+              </div>
+            </div>-->
+
+          </div>
+<!--
+          <div class="item range range-positive">
+            <i class="icon ion-ios-sunny-outline"></i>0%
+            <input type="range" min="0" max="100"  step="5" ng-model="form.share" ng-change="onRangeChange1()">
+            <i class="icon ion-ios-sunny"></i>100%
+          </div>-->
+
+        <div class="item range range-balanced range-background-dark">
+          <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;Slow
+          <input type="range" name="volume" min="1" max="20" ng-model="form.gems" ng-change="onRangeChange()">
+          <i class="fa fa-diamond fa-2x" aria-hidden="true"></i>&nbsp;Fast
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="center row">
+      <div class="col">
+        <button class="button button-block button-positive" ng-click="cancel()">Cancel</button>
+      </div>
+      <div class="col">
+        <button class="button button-block button-positive" ng-click="closeModal()">Submit</button>
+      </div> 
+
+    </div>
+  </ion-content>
+</ion-modal-view>

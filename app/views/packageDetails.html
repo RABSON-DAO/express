@@ -1,0 +1,166 @@
+<!--<ion-header-bar class="bar-positive">
+    <h1 class="title">Package Details</h1>
+  </ion-header-bar>-->
+
+
+<ion-view view-title="Package Details">
+
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="balanceClicked()">
+          My Balance: <strong><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp {{getBalance() | number:2}} </strong>
+      </button>
+  </ion-nav-buttons>
+
+
+  <ion-content class="padding" delegate-handle="pkgDetailspage">
+
+    <div class="list" ng-show="package.status == 'Ready' || package.status == 'ready' || package.status == 'Delivered'">
+      <!--Image Starts -->
+      <div class="text-center" ng-hide="imageData" ng-click="autoFill()">
+        <img class="full-image" ng-src="{{package.img}}" style="width:50%;height:50%">
+      </div>
+
+      <div class="center row">
+        <div class="col">
+          <button class="button  button-block button-outline  button-positive"><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;{{package.gems}}  / <i class="ion-social-usd"></i>&nbsp;{{package.gems/10 | number:2}}</button>
+        </div>
+        <div class="col">
+          <button class="button button-block button-outline  button-positive">Size: Medium </button>
+        </div>
+        <div class="col">
+          <button class="button button-block button-outline  button-positive">{{package.status}} </button>
+        </div>
+      </div>
+      <!--Image Ends-->
+
+      <p></p>
+
+
+      <div class="item item-divider">
+        Sender Info
+      </div>
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <input ng-model="package.senderAddr" type="text" placeholder="Full Address">
+            </label>
+      <div class="item item-divider">
+        Receiver Info
+      </div>
+      <label class="item item-input item-stacked-label">
+              <span class="input-label">Address*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <input ng-model="package.receiverAddr" type="text" placeholder="Full Name">
+            </label>
+
+             <label class="item item-input item-stacked-label">
+              <span class="input-label">Phone*&nbsp;<small ng-show="" style="font-size:50%">Some validation</small></span>
+              <input ng-model="package.recieverPhone" type="text" placeholder="Full Name">
+            </label>
+
+      <div class="item item-divider">
+        Instructions
+      </div>
+      <label class="item item-input item-stacked-label">
+                  <div class="row">
+                      <div class="col col-50">
+                        <span class="input-label">Signed Delivery Required?</span>
+                        <p></p>
+                      </div>
+                      <div class="col col-50">
+                        <label class="toggle pull-right">
+                          <input type="checkbox" ng-model="package.confirm">
+                          <div class="track">
+                            <div class="handle"></div>
+                          </div>
+                        </label>
+    </div>
+    </div>
+    </label>
+
+
+
+
+    <ion-checkbox class="checkbox-royal" ng-model="package.fragile">Fragile?</ion-checkbox>
+
+
+
+    <label class="item item-input item-stacked-label">
+              <span class="input-label">Instructions*&nbsp;<small ng-show="!isDescValid(form.story)" style="font-size:50%">Min 100 chars</small></span>
+              <textarea ng-model="package.instructions" type="text" placeholder="Detailed Story" rows="2" cols="10"></textarea>
+            </label>
+
+
+    <div class="center row">
+      <div ng-show="{{package.status == 'Ready'}}" class="col">
+        <button class="button button-block button-positive" ng-click="confirmPickup()">Pick Up</button>
+      </div>
+    </div>
+
+    </div>
+
+
+
+    <div class="list card" ng-show="package.status == 'In Transit'">
+
+      <div class="item item-avatar">
+        <img ng-src="{{package.img}}">
+        <h2>{{package.senderAddr}}</h2>
+        <!-- <p>November 05, 1955</p> -->
+        <p>Payout: <strong><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp; {{package.gems}} </strong> </p>
+      </div>
+
+      <div class="item item-body">
+        <div class="row">
+          <div class="col">
+            <img ng-src="{{package.img}}">
+            <p>
+
+              <div class="row">
+                <div class="col"><strong>Sender: </strong> </div>
+                <div class="col"> {{package.senderAddr}} </div>
+              </div>
+
+              <div class="row">
+                <div class="col"> <strong>Receiver: </strong> </div>
+                <div class="col"> {{package.receiverAddr}} </div>
+              </div>
+
+              <div class="row">
+                <div class="col"> <strong>Fragile: </strong> </div>
+                <div class="col"> No </div>
+              </div>
+
+              <div class="row">
+                <div class="col"> <strong>Signed Delivery: </strong> </div>
+                <div class="col"> Yes </div>
+              </div>
+
+              <div class="row">
+                <div class="col"> <strong>Instructions: </strong> </div>
+                <div class="col"> {{package.instructions}} </div>
+              </div>
+
+              <!-- This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of tabs, icons aligned left, within the card-footer. -->
+            </p>
+          </div>
+          <div class="col"><img class="full-image" src="images/tracker.png"></div>
+        </div>
+        <!-- <img class="full-image" src="http://automallindia.in/yahoo_site_admin/assets/images/Track_Map.212120829_std.png"> -->
+
+        <div class="center row">
+          <div ng-show="{{package.status == 'In Transit'}}" class="col">
+            <button class="button button-block button-assertive" ng-click="confirmDelivery()">Confirm Delivery</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+  </ion-content>
+</ion-view>
